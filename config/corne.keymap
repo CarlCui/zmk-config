@@ -8,7 +8,22 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+#define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
+
+
 / {
+        behaviors {
+            as: auto_shift {
+                compatible = "zmk,behavior-hold-tap";
+                label = "AUTO_SHIFT";
+                #binding-cells = <2>;
+                tapping_term_ms = <175>;
+                quick_tap_ms = <0>;
+                flavor = "tap-preferred";
+                bindings = <&kp>, <&kp>;
+            };
+        };
+
         keymap {
                 compatible = "zmk,keymap";
 
@@ -19,10 +34,10 @@
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  K  |  M   |  ,  |  .  |  /  | QUOT  |
 //                    | LCTRL | LGUI | 1 |   | 2 | LALT  | RIGHT |
                         bindings = <
-   &kp TAB   &mt LSHFT Q &mt LSHFT W &mt LSHFT F &mt LSHFT P &mt LSHFT G   &mt LSHFT J &mt LSHFT L  &mt LSHFT U     &mt LSHFT Y   &mt LSHFT SEMI &mt LSHFT BSLH
-   &kp BSPC  &mt LSHFT A &mt LSHFT R &mt LSHFT S &mt LSHFT T &mt LSHFT D   &mt LSHFT H &mt LSHFT N  &mt LSHFT E     &mt LSHFT I   &mt LSHFT O    &kp ENTER
-   &kp LSHFT &mt LSHFT Z &mt LSHFT X &mt LSHFT C &mt LSHFT V &mt LSHFT B   &mt LSHFT K &mt LSHFT M  &mt LSHFT COMMA &mt LSHFT DOT &mt LSHFT FSLH &mt LSHFT SQT
-                  &kp LCTRL &kp LGUI &lt 1 SPACE                               &lt 2 SPACE &kp LALT &kp RIGHT
+   &kp TAB   AS(Q) AS(W) AS(F) AS(P) AS(G)   AS(J) AS(L)  AS(U)     AS(Y)   AS(SEMI) AS(BSLH)
+   &kp BSPC  AS(A) AS(R) AS(S) AS(T) AS(D)   AS(H) AS(N)  AS(E)     AS(I)   AS(O)    &kp ENTER
+   &kp LSHFT AS(Z) AS(X) AS(C) AS(V) AS(B)   AS(K) AS(M)  AS(COMMA) AS(DOT) AS(FSLH) AS(SQT)
+                  &kp LCTRL &kp LGUI &lt 1 SPACE    &lt 2 SPACE &kp LALT &kp RIGHT
                         >;
                 };
                 lower_layer {
