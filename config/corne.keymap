@@ -46,13 +46,13 @@
 // |------+------+------+------+------+------+------+------+------+------+------+------|
 // |      |  [   |  ]   |  (   |  )   |  `   |  *   | LEFT | DOWN | RIGHT|   =  | ARROW|
 // |------+------+------+------+------+------+------+------+------+------+------+------|
-// |      |      |      |  {   |  }   |   '  |  "   |   !  |  &   |  |   |      |      |
+// |      |      |      |  {   |  }   |   '  |  "   |   !  |  &   |  |   | HOME | END  |
 // |------+------+------+------+------+------+------+------+------+------+------+------|
-// |      |      |      |      |      |             |      | HOME | PGDN | PGUP | END  |
+//               |      |      |      |             |      |      |      |
                         bindings = <
    &kp TILDE &kp EXCL &kp AT   &kp HASH &kp DLLR &kp PRCNT      &kp CARET &kp PLUS  &kp UP   &kp MINUS  &kp UNDER &trans
    &trans    &kp LBKT &kp RBKT &kp LPAR &kp RPAR &kp GRAVE      &kp STAR  &kp LEFT  &kp DOWN &kp RIGHT  &kp EQUAL &trans
-   &trans    &trans   &trans   &kp LBRC &kp RBRC &kp APOS       &kp DQT   &kp EXCL  &kp AMPS &kp PIPE   &trans    &trans
+   &trans    &trans   &trans   &kp LBRC &kp RBRC &kp APOS       &kp DQT   &kp EXCL  &kp AMPS &kp PIPE   &kp HOME  &kp END
                     &trans     &trans       &trans      &trans  &trans   &trans
                         >;
                 };
